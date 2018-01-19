@@ -1,12 +1,21 @@
 <template>
-  <div id="app">
+  <div>
     <router-view/>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    ...mapActions([
+      'init'
+    ])
+  },
+  mounted () {
+    this.init()
+  }
 }
 </script>
 

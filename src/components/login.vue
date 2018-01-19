@@ -4,8 +4,8 @@
       <div class="container">
         <div class="columns">
           <div class="column is-4 is-offset-4">
-            {{user}}
-            <button class="button is-large"  @click="logout">logout </button>
+            <img src="https://media.giphy.com/media/ijEiXYEo9DBxm/giphy.gif" alt="">
+            <button class="button is-large is-info is-outlined"  @click="toHomePage" style="width : 100%">LOGIN</button>
           </div>
         </div>
       </div>
@@ -21,12 +21,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['logout'])
+    ...mapActions(['login', 'logout']),
+    toHomePage () {
+      this.login()
+      this.$router.push({path: '/home'})
+    }
   },
   computed: {
-    ...mapGetters([
-      'user'
-    ])
+    ...mapGetters(['user', 'isReady'])
   }
 }
 </script>
